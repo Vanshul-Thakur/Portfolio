@@ -1,3 +1,4 @@
+.vscode/   
 # --- Global (Applies to Root and All Subfolders) ---
 # The ** ensures it catches .DS_Store in main, backend, frontend, etc.
 **/.DS_Store
