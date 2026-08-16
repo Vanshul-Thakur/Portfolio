@@ -1,0 +1,15 @@
+# --- Global (Applies to Root and All Subfolders) ---
+# The ** ensures it catches .DS_Store in main, backend, frontend, etc.
+**/.DS_Store
+
+# --- Backend Specifics ---
+# Point specifically to the file inside the backend folder
+backend/.env
+
+# Ignore Python cache and virtual env anywhere in backend
+backend/__pycache__/
+backend/venv/
+
+# --- Frontend Specifics (Future Proofing) ---
+frontend/node_modules/
+frontend/build/   
