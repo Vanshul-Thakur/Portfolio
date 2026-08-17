@@ -100,6 +100,14 @@
       background-size: 42px 42px;
     }
 
+    /* Slightly whitish transparent glass effect */
+    #navbar {
+      background: rgba(255, 255, 255, 0.055);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: rgba(255, 255, 255, 0.10);
+    }
+
     /* floating node animation */
     @keyframes floatY {
 
@@ -207,12 +215,13 @@
 
         <!-- Left: profile photo + name -->
         <a href="#home" class="flex items-center gap-3 group">
-          <!-- REPLACE: swap profile.jpg with your own circular headshot (recommended 200x200px) -->
           <img src="assets/profile_photo.png" alt="Portrait of Vanshul Thakur"
             class="w-9 h-9 rounded-full object-cover border border-line ring-1 ring-cyan/30 group-hover:ring-cyan/70 transition-all duration-300"
             onerror="this.src='https://placehold.co/72x72/0F1420/22D3EE?text=VN'" />
-          <!-- REPLACE: YOUR NAME -->
-          <span class="!text-white font-display font-semibold text-sm sm:text-base tracking-wide">Vanshul Thakur</span>
+
+          <span class="!text-white font-display font-semibold text-sm sm:text-base tracking-wide">
+            Vanshul Thakur
+          </span>
         </a>
 
         <!-- Right: desktop nav links -->
@@ -223,7 +232,7 @@
           <a href="#education" class="nav-link text-sm text-muted hover:text-ink transition-colors">Education</a>
           <a href="#certificates" class="nav-link text-sm text-muted hover:text-ink transition-colors">Certificates</a>
           <a href="#contact" class="nav-link text-sm text-muted hover:text-ink transition-colors">Contact</a>
-          <!-- REPLACE: point href to your actual CV.pdf -->
+
           <a href="assets/Vanshul_CV.pdf" download
             class="grad-btn text-sm font-medium text-white px-5 py-2 rounded-full hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-blue/10">
             Download CV
@@ -233,10 +242,12 @@
         <!-- Mobile hamburger -->
         <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"
           class="md:hidden text-ink p-2 -mr-2">
+
           <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
             stroke="currentColor" stroke-width="1.75">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
           </svg>
+
           <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24"
             stroke="currentColor" stroke-width="1.75">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -247,7 +258,8 @@
 
     <!-- Mobile menu -->
     <div id="mobile-menu"
-      class="md:hidden overflow-hidden max-h-0 opacity-0 bg-panel/95 backdrop-blur border-b border-line">
+      class="md:hidden overflow-hidden max-h-0 opacity-0 bg-white/10 backdrop-blur-xl border-b border-white/10">
+
       <div class="px-6 py-5 flex flex-col gap-4">
         <a href="#home" class="mobile-link text-sm text-muted hover:text-ink transition-colors">Home</a>
         <a href="#skills" class="mobile-link text-sm text-muted hover:text-ink transition-colors">Skills</a>
@@ -255,13 +267,15 @@
         <a href="#education" class="mobile-link text-sm text-muted hover:text-ink transition-colors">Education</a>
         <a href="#certificates" class="mobile-link text-sm text-muted hover:text-ink transition-colors">Certificates</a>
         <a href="#contact" class="mobile-link text-sm text-muted hover:text-ink transition-colors">Contact</a>
-        <a href="CV.pdf" download
+
+        <a href="assets/Vanshul_CV.pdf" download
           class="grad-btn text-sm font-medium text-white px-5 py-2.5 rounded-full text-center mt-1">
           Download CV
         </a>
       </div>
     </div>
   </nav>
+
 
   <!-- ============ HOME / HERO ============ -->
   <section id="home" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden grid-bg">
@@ -302,7 +316,7 @@
         </div>
       </div>
 
-      <!-- Right: AI / data visual (pure CSS, no external image) -->
+      <!-- Right: AI / data visual) -->
       <div class="relative hidden lg:flex items-center justify-center h-[26rem]" aria-hidden="true">
         <!-- connecting lines -->
         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none">
@@ -330,7 +344,7 @@
         <div
           class="grad-border float-slow absolute top-4 left-2 bg-panel/80 backdrop-blur rounded-xl px-4 py-3 shadow-xl">
           <p class="font-mono text-[10px] text-muted">model.py</p>
-          <p class="font-mono text-[11px] text-cyan mt-1">accuracy: 0.94</p>
+          <p class="font-mono text-[11px] text-cyan mt-1">accuracy: 0.92</p>
         </div>
         <div
           class="grad-border float-med absolute bottom-8 right-0 bg-panel/80 backdrop-blur rounded-xl px-4 py-3 shadow-xl">
@@ -416,6 +430,8 @@
               class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Streamlit</span>
             <span class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Fast
               API</span>
+            <span
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">React</span>
           </div>
         </div>
 
@@ -443,6 +459,194 @@
     </div>
   </section>
 
+  <!-- Moving Skills / Tech Logos -->
+  <div class="relative mt-12 overflow-hidden border-y border-line py-5">
+    <div class="flex w-max items-center gap-10" style="animation: skills-marquee 28s linear infinite;">
+
+      <!-- Set 1 -->
+      <div class="flex items-center gap-10 shrink-0">
+
+        <!-- Python -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/python" class="w-6 h-6" alt="Python">
+          <span class="font-mono text-xs">Python</span>
+        </div>
+
+        <!-- SQL -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/mysql" class="w-6 h-6" alt="SQL">
+          <span class="font-mono text-xs">SQL</span>
+        </div>
+
+        <!-- C++ -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/cplusplus" class="w-6 h-6" alt="C++">
+          <span class="font-mono text-xs">C++</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/javascript" class="w-6 h-6" alt="JavaScript">
+          <span class="font-mono text-xs">JavaScript</span>
+        </div>
+
+        <!-- Scikit-learn -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/scikitlearn" class="w-6 h-6" alt="Scikit-learn">
+          <span class="font-mono text-xs">Scikit-learn</span>
+        </div>
+
+        <!-- Pandas -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/pandas" class="w-6 h-6" alt="Pandas">
+          <span class="font-mono text-xs">Pandas</span>
+        </div>
+
+        <!-- TensorFlow -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/tensorflow" class="w-6 h-6" alt="TensorFlow">
+          <span class="font-mono text-xs">TensorFlow</span>
+        </div>
+
+        <!-- PyTorch -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/pytorch" class="w-6 h-6" alt="PyTorch">
+          <span class="font-mono text-xs">PyTorch</span>
+        </div>
+
+        <!-- Streamlit -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/streamlit" class="w-6 h-6" alt="Streamlit">
+          <span class="font-mono text-xs">Streamlit</span>
+        </div>
+
+        <!-- FastAPI -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/fastapi" class="w-6 h-6" alt="FastAPI">
+          <span class="font-mono text-xs">FastAPI</span>
+        </div>
+
+        <!-- React -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/react" class="w-6 h-6" alt="React">
+          <span class="font-mono text-xs">React</span>
+        </div>
+
+        <!-- Git -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/git" class="w-6 h-6" alt="Git">
+          <span class="font-mono text-xs">Git</span>
+        </div>
+
+        <!-- VS Code -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/visualstudiocode" class="w-6 h-6" alt="VS Code">
+          <span class="font-mono text-xs">VS Code</span>
+        </div>
+
+        <!-- Jupyter -->
+        <div class="flex items-center gap-2 text-muted hover:text-cyan transition-colors">
+          <img src="https://cdn.simpleicons.org/jupyter" class="w-6 h-6" alt="Jupyter">
+          <span class="font-mono text-xs">Jupyter</span>
+        </div>
+
+      </div>
+
+      <!-- Duplicate set for seamless infinite loop -->
+      <div class="flex items-center gap-10 shrink-0" aria-hidden="true">
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/python" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">Python</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/mysql" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">SQL</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/cplusplus" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">C++</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/javascript" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">JavaScript</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/scikitlearn" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">Scikit-learn</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/pandas" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">Pandas</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/tensorflow" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">TensorFlow</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/pytorch" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">PyTorch</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/streamlit" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">Streamlit</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/fastapi" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">FastAPI</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/react" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">React</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/git" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">Git</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/visualstudiocode" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">VS Code</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-muted">
+          <img src="https://cdn.simpleicons.org/jupyter" class="w-6 h-6" alt="">
+          <span class="font-mono text-xs">Jupyter</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes skills-marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .skills-marquee {
+        animation: none;
+      }
+    }
+  </style>
+
   <!-- ============ PROJECTS ============ -->
   <section id="projects" class="py-24 sm:py-28 border-t border-line">
     <div class="max-w-6xl mx-auto px-5 sm:px-8">
@@ -466,20 +670,25 @@
           <div
             class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue/0 via-cyan/0 to-violet/0 group-hover:from-blue/5 group-hover:via-cyan/5 group-hover:to-violet/5 transition-all duration-300 pointer-events-none">
           </div>
-          <h3 class="font-display font-semibold text-lg">AI Resume Analyzer</h3>
+          <h3 class="font-display font-semibold text-lg">Stock Price Prediction App</h3>
           <p class="text-muted text-sm leading-relaxed mt-2.5">
-            An AI-powered application that analyzes resumes and provides skill extraction, job matching,
-            and improvement suggestions.
+            A full-stack stock price prediction application that provides stock data, predictions, and an interactive
+            interface for analyzing market trends.
           </p>
           <div class="flex flex-wrap gap-2 mt-4">
             <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Python</span>
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">React</span>
             <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">NLP</span>
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Vite</span>
             <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">LLMs</span>
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Tailwind
+              CSS</span>
             <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Streamlit</span>
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">FastAPI</span>
+            <span
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Supabase</span>
+            <span
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">PostgreSQL</span>
           </div>
           <div class="flex gap-3 mt-6">
             <!-- REPLACE: GitHub / demo links -->
@@ -505,28 +714,33 @@
           <div
             class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue/0 via-cyan/0 to-violet/0 group-hover:from-blue/5 group-hover:via-cyan/5 group-hover:to-violet/5 transition-all duration-300 pointer-events-none">
           </div>
-          <h3 class="font-display font-semibold text-lg">Customer Churn Prediction</h3>
+          <h3 class="font-display font-semibold text-lg">Text Summarization</h3>
           <p class="text-muted text-sm leading-relaxed mt-2.5">
-            Machine learning model that predicts customer churn and identifies the factors influencing
-            customer retention.
+            A text summarization application that processes lengthy text and generates concise summaries while
+            preserving the key information and main ideas.
           </p>
           <div class="flex flex-wrap gap-2 mt-4">
             <span
               class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Python</span>
             <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Pandas</span>
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Streamlit</span>
             <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">Scikit-learn</span>
-            <span
-              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">XGBoost</span>
+              class="font-mono text-[10px] text-cyan bg-cyan/5 border border-cyan/20 rounded-full px-2.5 py-1">NLTK</span>
           </div>
           <div class="flex gap-3 mt-6">
+            <!-- REPLACE: GitHub / demo links -->
             <a href="#" class="inline-flex items-center gap-1.5 text-sm text-ink hover:text-cyan transition-colors">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
-                  d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.44-2.7 5.42-5.27 5.7.41.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                  d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.15c0-.3.21-.65.78-.55A10.52 10.52 0 0023.5 12C23.5 5.73 18.27.5 12 .5z" />
               </svg>
               GitHub
+            </a>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm text-ink hover:text-cyan transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18v4.5M18 6l-7.5 7.5M6 12v6h6" />
+              </svg>
+              Live Demo
             </a>
           </div>
         </article>
@@ -581,26 +795,59 @@
 
         <!-- Entry 1 -->
         <div class="reveal relative pb-14">
-          <span
-            class="absolute -left-8 sm:-left-10 top-1 w-4 h-4 rounded-full bg-base border-2 border-cyan pulse-node"></span>
-          <p class="font-mono text-xs text-cyan tracking-wide">2023 — 2027</p>
-          <h3 class="font-display font-semibold text-xl mt-2">Bachelor's Degree in Data Science / Artificial
-            Intelligence</h3>
-          <!-- REPLACE: YOUR UNIVERSITY NAME -->
-          <p class="text-sm text-muted mt-1">YOUR UNIVERSITY NAME</p>
+          <span class="absolute -left-8 sm:-left-10 top-1 w-4 h-4 rounded-full bg-base border-2 border-cyan pulse-node">
+          </span>
+
+          <p class="font-mono text-xs text-cyan tracking-wide">2025 — 2027</p>
+
+          <h3 class="font-display font-semibold text-xl mt-2">
+            Master of Computer Applications
+          </h3>
+
+          <p class="text-sm mt-1">
+            Lovely Professional University
+          </p>
+
           <p class="text-muted text-sm leading-relaxed mt-3 max-w-xl">
-            Studying data science, machine learning, artificial intelligence, statistics, databases,
-            programming, and related technologies.
+            Studying data science, machine learning, artificial intelligence, statistics,
+            databases, programming, and related technologies.
           </p>
         </div>
 
         <!-- Entry 2 -->
+        <div class="reveal relative pb-14">
+          <span class="absolute -left-8 sm:-left-10 top-1 w-4 h-4 rounded-full bg-base border-2 border-line">
+          </span>
+
+          <p class="font-mono text-xs text-muted tracking-wide">2022 — 2025</p>
+
+          <h3 class="font-display font-semibold text-xl mt-2">
+            Bachelor of Computer Applications
+          </h3>
+
+          <p class="text-sm mt-1">
+            Baddi University
+          </p>
+          <p class="text-sm text-muted mt-1">
+            BCA background in programming and databases with fundamental knowledge of statistics and ML concepts,
+            forming the base for current advanced specialization in Data Science.
+          </p>
+        </div>
+
+        <!-- Entry 3 -->
         <div class="reveal relative">
-          <span class="absolute -left-8 sm:-left-10 top-1 w-4 h-4 rounded-full bg-base border-2 border-line"></span>
-          <p class="font-mono text-xs text-muted tracking-wide">2021 — 2023</p>
-          <h3 class="font-display font-semibold text-xl mt-2">Higher Secondary Education</h3>
-          <!-- REPLACE: YOUR SCHOOL NAME -->
-          <p class="text-sm text-muted mt-1">YOUR SCHOOL NAME</p>
+          <span class="absolute -left-8 sm:-left-10 top-1 w-4 h-4 rounded-full bg-base border-2 border-line">
+          </span>
+
+          <p class="font-mono text-xs text-muted tracking-wide">2019 — 2020</p>
+
+          <h3 class="font-display font-semibold text-xl mt-2">
+            Higher Secondary Education
+          </h3>
+
+          <p class="text-sm mt-1">
+            Mount Maurya International School
+          </p>
         </div>
       </div>
     </div>
@@ -618,26 +865,23 @@
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-6 mt-14">
 
-        <!-- Certificate card template — duplicate this block and edit for more certificates -->
-        <!-- REPLACE: certificate-1.jpg with a scan/screenshot of your certificate, and update title/issuer/date -->
 
         <!-- Certificate 1 -->
         <div
           class="reveal group bg-panel border border-line rounded-2xl overflow-hidden hover:-translate-y-1.5 hover:border-cyan/40 transition-all duration-300">
           <div class="aspect-[4/3] overflow-hidden bg-panel2">
-            <img src="certificate-1.jpg" alt="Preview of Machine Learning Specialization certificate"
+            <img src="assets/certificates/python.jpg" alt="Preview of Python certificate"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               onerror="this.src='https://placehold.co/480x360/0F1420/F5A623?text=Certificate'" />
           </div>
           <div class="p-5">
-            <h3 class="font-display font-semibold text-base">Machine Learning Specialization</h3>
-            <p class="text-xs text-muted mt-1">Coursera · Issued 2025</p>
+            <h3 class="!text-white font-display font-semibold text-base">Python for Data Science</h3>
+            <p class="text-xs text-muted mt-1">Cognitive Class · Issued 2025</p>
             <button type="button"
               class="view-cert-btn mt-4 inline-flex items-center gap-1.5 text-sm text-cyan hover:text-white transition-colors"
-              data-src="certificate-1.jpg" data-title="Machine Learning Specialization"
-              data-issuer="Coursera · Issued 2025">
+              data-src="assets/certificates/python.jpg" data-title="Python" data-issuer="Cognitive Class · Issued 2025">
               View Certificate
               <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18v4.5M18 6l-7.5 7.5M6 12v6h6" />
@@ -650,17 +894,17 @@
         <div
           class="reveal group bg-panel border border-line rounded-2xl overflow-hidden hover:-translate-y-1.5 hover:border-cyan/40 transition-all duration-300">
           <div class="aspect-[4/3] overflow-hidden bg-panel2">
-            <img src="certificate-2.jpg" alt="Preview of Deep Learning Specialization certificate"
+            <img src="assets/certificates/php.jpg" alt="Preview of Deep Learning Specialization certificate"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               onerror="this.src='https://placehold.co/480x360/0F1420/F5A623?text=Certificate'" />
           </div>
           <div class="p-5">
-            <h3 class="font-display font-semibold text-base">Deep Learning Specialization</h3>
-            <p class="text-xs text-muted mt-1">DeepLearning.AI · Issued 2025</p>
+            <h3 class="!text-white font-display font-semibold text-base">PHP</h3>
+            <p class="text-xs text-muted mt-1">Jetking · Issued 2022</p>
             <button type="button"
               class="view-cert-btn mt-4 inline-flex items-center gap-1.5 text-sm text-cyan hover:text-white transition-colors"
-              data-src="certificate-2.jpg" data-title="Deep Learning Specialization"
-              data-issuer="DeepLearning.AI · Issued 2025">
+              data-src="assets/certificates/php.jpg" data-title="Deep Learning Specialization"
+              data-issuer="Jetking · Issued 2022">
               View Certificate
               <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18v4.5M18 6l-7.5 7.5M6 12v6h6" />
@@ -669,7 +913,7 @@
           </div>
         </div>
 
-        <!-- Certificate 3 -->
+        <!-- Certificate 3 
         <div
           class="reveal group bg-panel border border-line rounded-2xl overflow-hidden hover:-translate-y-1.5 hover:border-cyan/40 transition-all duration-300">
           <div class="aspect-[4/3] overflow-hidden bg-panel2">
@@ -690,6 +934,7 @@
             </button>
           </div>
         </div>
+        -->
       </div>
     </div>
   </section>
@@ -806,21 +1051,22 @@
       <p class="text-xs text-muted font-mono">© 2026 Vanshul Thakur. All rights reserved.</p>
 
       <div class="flex items-center gap-5">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+        <a href="https://github.com/Vanshul-Thakur" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
           class="text-muted hover:text-cyan transition-colors">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.44-2.7 5.42-5.27 5.7.41.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
           </svg>
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-          class="text-muted hover:text-cyan transition-colors">
+        <a href="https://www.linkedin.com/in/vanshul-thakur/" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn" class="text-muted hover:text-cyan transition-colors">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.48V23h-4V8z" />
           </svg>
         </a>
-        <a href="mailto:your.email@example.com" aria-label="Email" class="text-muted hover:text-cyan transition-colors">
+        <a href="mailto:vanshulthakur007@gmail.com" aria-label="Email"
+          class="text-muted hover:text-cyan transition-colors">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M3 8l9 6 9-6M4 6h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1z" />
