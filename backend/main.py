@@ -15,7 +15,7 @@ app = FastAPI()
 # Allow your frontend to call the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # change to your Vercel URL before production
+    allow_origins=["https://portfolio-flax-one-6vxiqbbagt.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
