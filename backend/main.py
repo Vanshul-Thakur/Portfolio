@@ -1,7 +1,6 @@
 import os
-import smtplib
-from email.message import EmailMessage
 
+import resend
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,11 +10,12 @@ load_dotenv()
 
 app = FastAPI()
 
-
-# Allow your frontend to call the backend
+# Allow your Vercel frontend to call the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://portfolio-flax-one-6vxiqbbagt.vercel.app"],
+    allow_origins=[
+        "https://portfolio-flax-one-6vxiqbbagt.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,40 +37,48 @@ def root():
 @app.post("/contact")
 def send_contact_email(form: ContactForm):
 
-    sender_email = os.getenv("EMAIL_ADDRESS")
-    app_password = os.getenv("EMAIL_APP_PASSWORD")
+    resend_api_key = os.getenv("RESEND_API_KEY")
 
-    if not sender_email or not app_password:
+    if not resend_api_key:
         raise HTTPException(
             status_code=500,
-            detail="Email configuration is missing"
+            detail="Resend API key is missing"
         )
 
-    email = EmailMessage()
-
-    email["From"] = sender_email
-    email["To"] = sender_email
-    email["Reply-To"] = form.email
-    email["Subject"] = f"Portfolio Contact: {form.subject}"
-
-    email.set_content(
-        f"""
-            New message from your portfolio
-
-            Name: {form.name}
-            Email: {form.email}
-            Subject: {form.subject}
-
-            Message:
-            {form.message}
-        """
-    )
+    resend.api_key = resend_api_key
 
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-            smtp.starttls()
-            smtp.login(sender_email, app_password)
-            smtp.send_message(email)
+        params = {
+            "from": "Portfolio <onboarding@resend.dev>",
+            "to": ["vanshulthakur007@gmail.com"],
+            "subject": f"Portfolio Contact: {form.subject}",
+            "html": f"""
+                <h2>New message from your portfolio</h2>
+
+                <p><strong>Name:</strong> {form.name}</p>
+
+                <p><strong>Email:</strong>
+                {form.email}</p>
+
+                <p><strong>Subject:</strong>
+                {form.subject}</p>
+
+                <h3>Message</h3>
+
+                <p>{form.message}</p>
+
+                <hr>
+
+                <p>
+                    You can reply directly to:
+                    <strong>{form.email}</strong>
+                </p>
+            """
+        }
+
+        email = resend.Emails.send(params)
+
+        print("Email sent:", email)
 
         return {
             "success": True,
